@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediportaTask", "MediportaTask.csproj", "{F8E371D1-2BC8-400C-908F-7BCF1B4E7F07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediportaTask.Tests", "..\MediportaTask.Tests\MediportaTask.Tests.csproj", "{4620D20D-2DFD-419B-8D31-DE71FEBBBA46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8E371D1-2BC8-400C-908F-7BCF1B4E7F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E371D1-2BC8-400C-908F-7BCF1B4E7F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E371D1-2BC8-400C-908F-7BCF1B4E7F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E371D1-2BC8-400C-908F-7BCF1B4E7F07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4620D20D-2DFD-419B-8D31-DE71FEBBBA46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4620D20D-2DFD-419B-8D31-DE71FEBBBA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4620D20D-2DFD-419B-8D31-DE71FEBBBA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4620D20D-2DFD-419B-8D31-DE71FEBBBA46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
