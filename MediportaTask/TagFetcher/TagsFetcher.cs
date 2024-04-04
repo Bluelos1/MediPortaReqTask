@@ -69,31 +69,31 @@ public class TagsFetcher : ITagsFetcher
 
     private async Task<bool> ProcessApiResponse(StackOverflowResponse apiResponse)
     {
-        if (apiResponse?.items == null || !apiResponse.items.Any())
+        if (apiResponse?.Items == null || !apiResponse.Items.Any())
         {
             _logger.LogInformation("No more tags to add");
             return false;
         }
 
-        var totalCount = apiResponse.items.Sum(tag => tag.count);
-        foreach (var tag in apiResponse.items)
+        var totalCount = apiResponse.Items.Sum(tag => tag.Count);
+        foreach (var tag in apiResponse.Items)
         {
-            var existingTag =
-                await _context.Tags.FirstOrDefaultAsync(t => t.name == tag.name || t.count == tag.count);
+            var existingTag = await _context.Tags.FirstOrDefaultAsync(t => t.Name == tag.Name);
             if (existingTag != null)
             {
-                existingTag.count = tag.count;
-                tag.percentage = ((double)tag.count / totalCount) * 100;
-                _logger.LogInformation("Update existing tag: {TagName}", tag.name);
+                existingTag.Count = tag.Count;
+                existingTag.Percentage = ((double)tag.Count / totalCount) * 100;
+                _logger.LogInformation("Update existing tag: {TagName}", existingTag.Name);
             }
             else
             {
+                tag.Percentage = ((double)tag.Count / totalCount) * 100;
                 _context.Tags.Add(tag);
-                _logger.LogInformation("Add new tag: {TagName}", tag.name);
-            }
+                _logger.LogInformation("Add new tag: {TagName}", tag.Name);
+            }   
             
         }
-        return apiResponse.items.Count < 1000;
+        return apiResponse.Items.Count < 1000;
     }
     
 }

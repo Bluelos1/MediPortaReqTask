@@ -25,7 +25,7 @@ public class StackOverflowServiceTest
             .Options;
 
         await using var context = new TagDbContext(tagDb);
-        context.Tags.AddRange(new Tag { name = "Java" }, new Tag { name = "Python" });
+        context.Tags.AddRange(new Tag { Name = "Java" }, new Tag { Name = "Python" });
         await context.SaveChangesAsync();
         
         var service = new StackOverflowService(context, Mock.Of<ILogger<StackOverflowService>>());
@@ -35,6 +35,6 @@ public class StackOverflowServiceTest
 
         // Assert
         Assert.Equal(2, result.Count());
-        Assert.Equal("Java", result.First().name);
+        Assert.Equal("Java", result.First().Name);
     }
 }

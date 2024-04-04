@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MediportaTask.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,9 +18,9 @@ namespace MediportaTask.Migrations
                 {
                     ResponseId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    has_more = table.Column<bool>(type: "boolean", nullable: false),
-                    quota_max = table.Column<int>(type: "integer", nullable: false),
-                    quota_remaining = table.Column<int>(type: "integer", nullable: false)
+                    HasMore = table.Column<bool>(type: "boolean", nullable: false),
+                    QuotaMax = table.Column<int>(type: "integer", nullable: false),
+                    QuotaRemaining = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,12 +33,12 @@ namespace MediportaTask.Migrations
                 {
                     TagId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    has_synonyms = table.Column<bool>(type: "boolean", nullable: false),
-                    is_moderator_only = table.Column<bool>(type: "boolean", nullable: false),
-                    is_required = table.Column<bool>(type: "boolean", nullable: false),
-                    count = table.Column<int>(type: "integer", nullable: false),
-                    name = table.Column<string>(type: "text", nullable: false),
-                    percentage = table.Column<double>(type: "double precision", nullable: false),
+                    HasSynonyms = table.Column<bool>(type: "boolean", nullable: false),
+                    IsModeratorOnly = table.Column<bool>(type: "boolean", nullable: false),
+                    IsRequired = table.Column<bool>(type: "boolean", nullable: false),
+                    Count = table.Column<int>(type: "integer", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Percentage = table.Column<double>(type: "double precision", nullable: false),
                     StackOverflowResponseResponseId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
@@ -57,11 +57,11 @@ namespace MediportaTask.Migrations
                 {
                     CollectiveId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    tags = table.Column<List<string>>(type: "text[]", nullable: false),
-                    description = table.Column<string>(type: "text", nullable: false),
-                    link = table.Column<string>(type: "text", nullable: false),
-                    name = table.Column<string>(type: "text", nullable: false),
-                    slug = table.Column<string>(type: "text", nullable: false),
+                    Tags = table.Column<List<string>>(type: "text[]", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    Link = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Slug = table.Column<string>(type: "text", nullable: false),
                     TagId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
@@ -80,8 +80,8 @@ namespace MediportaTask.Migrations
                 {
                     LinkId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    type = table.Column<string>(type: "text", nullable: false),
-                    link = table.Column<string>(type: "text", nullable: false),
+                    Type = table.Column<string>(type: "text", nullable: false),
+                    Link = table.Column<string>(type: "text", nullable: false),
                     CollectiveId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>

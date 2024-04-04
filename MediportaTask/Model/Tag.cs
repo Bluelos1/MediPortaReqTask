@@ -8,11 +8,18 @@ public class Tag
     [JsonIgnore]
     [Key]
     public int TagId { get; set; }
-    public bool has_synonyms { get; set; }
-    public bool is_moderator_only { get; set; }
-    public bool is_required { get; set; }
-    public int count { get; set; }
-    public string name { get; set; }
-    public List<Collective> collectives { get; set; }
-    public double percentage { get; set; }
+    [JsonPropertyName("has_synonyms")]
+    public bool HasSynonyms { get; set; }
+    [JsonPropertyName("is_moderator_only")]
+    public bool IsModeratorOnly { get; set; }
+    [JsonPropertyName("is_required")]
+    public bool IsRequired { get; set; }
+    [JsonPropertyName("count")]
+    public int Count { get; set; }
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+    [JsonPropertyName("collectives")]
+    public List<Collective> Collectives { get; set; }
+    [JsonPropertyName("percentage")]
+    public double Percentage { get; set; }
 }

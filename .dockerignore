@@ -23,3 +23,5 @@
 **/values.dev.yaml
 LICENSE
 README.md
+MediportaTask.Tests/
+MediportaTask.IntegrationTests/

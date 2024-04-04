@@ -8,10 +8,16 @@ public class Collective
     [JsonIgnore]
     [Key]
     public int CollectiveId { get; set; }
-    public List<string> tags { get; set; }
-    public List<ExternalLink> external_links { get; set; }
-    public string description { get; set; }
-    public string link { get; set; }
-    public string name { get; set; }
-    public string slug { get; set; }
+    [JsonPropertyName("tags")]
+    public List<string> Tags { get; set; }
+    [JsonPropertyName("external_links")]
+    public List<ExternalLink> ExternalLinks { get; set; }
+    [JsonPropertyName("description")]
+    public string Description { get; set; }
+    [JsonPropertyName("link")]
+    public string Link { get; set; }
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+    [JsonPropertyName("slug")]
+    public string Slug { get; set; }
 }

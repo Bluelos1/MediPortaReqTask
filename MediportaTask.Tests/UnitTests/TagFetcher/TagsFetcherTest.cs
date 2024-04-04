@@ -54,8 +54,8 @@ public class TagsFetcherTest
 
             // Assert
             Assert.NotNull(result);
-            Assert.Single(result.items);
-            Assert.Equal("C#", result.items.First().name);
+            Assert.Single(result.Items);
+            Assert.Equal("C#", result.Items.First().Name);
         }
     }
 }

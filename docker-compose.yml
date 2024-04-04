@@ -1,0 +1,12 @@
+﻿version: '3.4'
+
+services:
+  api:
+    image: mediportatask
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

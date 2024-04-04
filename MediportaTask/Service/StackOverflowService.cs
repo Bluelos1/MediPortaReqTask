@@ -27,11 +27,11 @@ public class StackOverflowService : IStackOverflowService
             sortedTags = sortField switch
             {
                 "name" => sortOrder == "desc"
-                    ? sortedTags.OrderByDescending(t => t.name)
-                    : sortedTags.OrderBy(t => t.name),
+                    ? sortedTags.OrderByDescending(t => t.Name)
+                    : sortedTags.OrderBy(t => t.Name),
                 "count" => sortOrder == "desc"
-                    ? sortedTags.OrderByDescending(t => t.count)
-                    : sortedTags.OrderBy(t => t.count),
+                    ? sortedTags.OrderByDescending(t => t.Count)
+                    : sortedTags.OrderBy(t => t.Count),
                 _ => sortedTags
             };
             var tags = await sortedTags.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();

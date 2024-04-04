@@ -13,8 +13,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MediportaTask.Migrations
 {
     [DbContext(typeof(TagDbContext))]
-    [Migration("20240330195658_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240404000813_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,26 +34,26 @@ namespace MediportaTask.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CollectiveId"));
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int?>("TagId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("link")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("slug")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<List<string>>("tags")
+                    b.Property<List<string>>("Tags")
                         .IsRequired()
                         .HasColumnType("text[]");
 
@@ -75,11 +75,11 @@ namespace MediportaTask.Migrations
                     b.Property<int?>("CollectiveId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("link")
+                    b.Property<string>("Link")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("type")
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -98,13 +98,13 @@ namespace MediportaTask.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ResponseId"));
 
-                    b.Property<bool>("has_more")
+                    b.Property<bool>("HasMore")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("quota_max")
+                    b.Property<int>("QuotaMax")
                         .HasColumnType("integer");
 
-                    b.Property<int>("quota_remaining")
+                    b.Property<int>("QuotaRemaining")
                         .HasColumnType("integer");
 
                     b.HasKey("ResponseId");
@@ -120,27 +120,27 @@ namespace MediportaTask.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TagId"));
 
-                    b.Property<int?>("StackOverflowResponseResponseId")
+                    b.Property<int>("Count")
                         .HasColumnType("integer");
 
-                    b.Property<int>("count")
-                        .HasColumnType("integer");
-
-                    b.Property<bool>("has_synonyms")
+                    b.Property<bool>("HasSynonyms")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("is_moderator_only")
+                    b.Property<bool>("IsModeratorOnly")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("is_required")
+                    b.Property<bool>("IsRequired")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("name")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("percentage")
+                    b.Property<double>("Percentage")
                         .HasColumnType("double precision");
+
+                    b.Property<int?>("StackOverflowResponseResponseId")
+                        .HasColumnType("integer");
 
                     b.HasKey("TagId");
 
@@ -152,37 +152,37 @@ namespace MediportaTask.Migrations
             modelBuilder.Entity("MediportaTask.Model.Collective", b =>
                 {
                     b.HasOne("MediportaTask.Model.Tag", null)
-                        .WithMany("collectives")
+                        .WithMany("Collectives")
                         .HasForeignKey("TagId");
                 });
 
             modelBuilder.Entity("MediportaTask.Model.ExternalLink", b =>
                 {
                     b.HasOne("MediportaTask.Model.Collective", null)
-                        .WithMany("external_links")
+                        .WithMany("External_Links")
                         .HasForeignKey("CollectiveId");
                 });
 
             modelBuilder.Entity("MediportaTask.Model.Tag", b =>
                 {
                     b.HasOne("MediportaTask.Model.StackOverflowResponse", null)
-                        .WithMany("items")
+                        .WithMany("Items")
                         .HasForeignKey("StackOverflowResponseResponseId");
                 });
 
             modelBuilder.Entity("MediportaTask.Model.Collective", b =>
                 {
-                    b.Navigation("external_links");
+                    b.Navigation("External_Links");
                 });
 
             modelBuilder.Entity("MediportaTask.Model.StackOverflowResponse", b =>
                 {
-                    b.Navigation("items");
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("MediportaTask.Model.Tag", b =>
                 {
-                    b.Navigation("collectives");
+                    b.Navigation("Collectives");
                 });
 #pragma warning restore 612, 618
         }
